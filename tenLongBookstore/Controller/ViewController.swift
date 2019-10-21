@@ -108,14 +108,30 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = ((collectionView.bounds.width) / 2) - 30
+        let width = (collectionView.bounds.width) / 20 * 7
         let height = (collectionView.bounds.height) / 2 * 3
         return CGSize(width: width, height: height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        let space = (collectionView.bounds.width) / 20 * 2
+        return space
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        let space = (collectionView.bounds.width) / 20
+//        return space
+//    }
+    
+    
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//
+//        let space = (collectionView.bounds.width) / 20 * 2
+//
+//        return UIEdgeInsets(top: 10, left: -space, bottom: 10, right: 0)
+//    }
 }
 
 extension ViewController: UISearchBarDelegate {
