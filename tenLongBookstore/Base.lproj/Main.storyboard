@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--天瓏書局-->
+        <!--View Controller-->
         <scene sceneID="chT-hz-Vwn">
             <objects>
                 <viewController storyboardIdentifier="segue" id="oxN-DR-7Xe" customClass="ViewController" customModule="tenLongBookstore" sceneMemberID="viewController">
@@ -87,7 +87,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HbL-eX-M62"/>
                     </view>
-                    <navigationItem key="navigationItem" title="天瓏書局" id="U97-mE-wvL"/>
+                    <navigationItem key="navigationItem" id="U97-mE-wvL"/>
                     <connections>
                         <outlet property="collectionView" destination="wjc-Zr-1he" id="twK-5R-RSx"/>
                         <segue destination="vcs-fE-F8r" kind="showDetail" identifier="segue" id="LXR-wZ-eTB"/>

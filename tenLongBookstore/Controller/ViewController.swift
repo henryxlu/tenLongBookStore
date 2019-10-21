@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     
     func setNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "天瓏書局"
         navigationItem.searchController = UISearchController()
         navigationItem.searchController?.searchBar.delegate = self
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -119,27 +120,23 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         return space
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        let space = (collectionView.bounds.width) / 20
-//        return space
-//    }
-    
-    
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//
-//        let space = (collectionView.bounds.width) / 20 * 2
-//
-//        return UIEdgeInsets(top: 10, left: -space, bottom: 10, right: 0)
-//    }
 }
 
 extension ViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         cacheQueryForSearchBarDismiss = searchText
+        let s = searchText.lowercased()
         if searchText.isEmpty == false {
-            bookList = allBook.filter({ $0.name!.contains(searchText) })
+            let cache = allBook.filter({ $0.name!.lowercased().contains(s) })
+            let ss = Substring(s)
+            bookList = cache.sorted{
+                !$1.name!
+                    .lowercased()
+                    .split(separator: " ")
+//                .map{String($0)}
+                    .contains(ss)
+            }
         }
         else {bookList = allBook}
         collectionView.reloadData()
