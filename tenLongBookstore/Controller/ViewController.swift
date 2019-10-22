@@ -28,7 +28,6 @@ class ViewController: UIViewController {
     }
     
     func setNavigationBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "天瓏書局"
         navigationItem.searchController = UISearchController()
         navigationItem.searchController?.searchBar.delegate = self
